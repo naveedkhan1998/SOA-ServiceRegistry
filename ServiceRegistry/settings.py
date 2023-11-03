@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "channels_auth_token_middlewares",
+    "registry",
+    "websocket",
+    "health",
 ]
 
 MIDDLEWARE = [
@@ -97,7 +100,7 @@ DATABASES = {
         "USER": env("DATABASE_USER"),
         "PASSWORD": env("DATABASE_PASS"),
         "HOST": env("DATABASE_HOST"),
-    },#
+    },  #
 }
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")

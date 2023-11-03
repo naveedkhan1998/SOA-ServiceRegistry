@@ -23,6 +23,9 @@ from . import settings
 urlpatterns = (
     [
         path("admin/", admin.site.urls),
+        path("", include("health.urls")),
+        path("registry/", include("registry.urls")),
+        path("websocket/", include("websocket.urls")),
     ]
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
