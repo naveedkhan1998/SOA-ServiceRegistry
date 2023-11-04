@@ -1,3 +1,5 @@
+# Setup-Guide
+
 ## Step 1: Check for Git Installation
 
 First, check if Git is already installed on your system:
@@ -11,13 +13,13 @@ If Git is not installed, you can download and install it from the official websi
 ## Step 2: Clone the Git Repository
 
 ```bash
-git clone https://github.com/naveedkhan1998/django-channels.git
+git clone https://github.com/naveedkhan1998/SOA-ServiceRegistry.git
 ```
 
 ## Step 3: Change Directory to the Cloned Project
 
 ```bash
-cd django-channels
+cd SOA-ServiceRegistry.
 ```
 
 Change your current working directory to the newly cloned project.
@@ -65,14 +67,10 @@ This command installs the required packages listed in your `requirements.txt` fi
 ## Step 8: Run Your Project
 
 ```bash
-python manage.py runserver 0.0.0.0:5000
+python manage.py runserver 0.0.0.0:8080
 ```
 
-## Additional Notes:
+## Additional Notes
 
 - To run the project, follow the instructions you have for starting the application, which might involve Docker Compose, as indicated in your provided notes.
 - You can access the live site using the following link: [Live Site](https://application-fc.18klajjho232.ca-tor.codeengine.appdomain.cloud/)
-
-```
-
-```
