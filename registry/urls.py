@@ -1,8 +1,8 @@
 from django.urls import path
-
-#from .views import HealthView
+from . import views
 
 
 urlpatterns = [
-#path("health/", HealthView.as_view(), name="health"),
+    path("update/", views.update_clients, name="update"),
+    path("endpoints/", views.get_endpoints, name="endpoints"),
 ]

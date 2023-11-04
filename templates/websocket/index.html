@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebSocket Example</title>
+    {% load static %}
+  </head>
+  <body>
+    <h1>WebSocket Example</h1>
+    <button id="sendButton">Send</button>
+
+    <script>
+      // Function to determine whether the app is running locally or deployed
+      function isLocalhost() {
+        return (
+          window.location.hostname === "localhost" ||
+          window.location.hostname === "127.0.0.1"
+        );
+      }
+
+      // Determine the WebSocket URL dynamically
+      const protocol = isLocalhost() ? "ws" : "wss";
+      const host = window.location.host;
+      const wsUrl = `${protocol}://${host}/ws/connect/`;
+
+      const socket = new WebSocket(wsUrl);
+
+      socket.onopen = (event) => {
+        console.log("WebSocket connection opened.");
+      };
+
+      socket.onmessage = (event) => {
+        console.log("Received message: " + event.data);
+      };
+
+      socket.onclose = (event) => {
+        console.log("WebSocket connection closed.");
+      };
+
+      document.getElementById("sendButton").addEventListener("click", () => {
+        // Add your message content here before sending it
+        const message = "";
+        socket.send(message);
+      });
+    </script>
+  </body>
+</html>

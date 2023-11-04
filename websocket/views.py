@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def websocket_example(request):
+    return render(request, 'websocket/index.html')
