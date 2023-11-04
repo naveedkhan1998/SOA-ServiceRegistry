@@ -3,11 +3,11 @@ from asgiref.sync import async_to_sync
 
 
 def ping_websocket():
-    room_name = 'temp'
+    room_name = "test"
     message_data = {
         "type": "chat_message",
-        "message": 'PING',
-        "user": 'DJANGO',
+        "message": "PING",
+        "user": "ADMIN",
     }
     channel_layer = get_channel_layer()
-    async_to_sync(channel_layer.group_send)(f"chat_{room_name}", message_data)
+    async_to_sync(channel_layer.group_send)(f"ws_{room_name}", message_data)

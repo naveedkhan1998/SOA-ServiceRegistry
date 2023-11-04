@@ -61,9 +61,11 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "ServiceRegistry.urls"
+
 
 TEMPLATES = [
     {
@@ -104,7 +106,12 @@ DATABASES = {
 }
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+
+STATICFILES_DIRS = [
+    BASE_DIR / "templates",
+]
+
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 MEDIA_URL = "media/"
 OUTPUT_ROOT = os.path.join(BASE_DIR, "OUTPUTS/")

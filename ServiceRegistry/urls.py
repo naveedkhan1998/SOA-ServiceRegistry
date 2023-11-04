@@ -22,6 +22,7 @@ from . import settings
 
 urlpatterns = (
     [
+        path("", TemplateView.as_view(template_name="websocket/index.html")),
         path("admin/", admin.site.urls),
         path("", include("health.urls")),
         path("registry/", include("registry.urls")),

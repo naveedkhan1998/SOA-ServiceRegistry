@@ -2,7 +2,7 @@ from typing import Any
 from django.contrib import admin
 from .models import Server, Url, ServiceEndpoint
 
-# from .helper import ping_websocket
+from .helper import ping_websocket
 
 # Register your models here.
 
@@ -19,7 +19,7 @@ class ServerAdmin(admin.ModelAdmin):
             else:
                 qs_url.update(is_active=True)
                 qs_endpoints.update(is_active=True)
-            ...  # ping_websocket()
+            ping_websocket()
 
         obj.save()
 
@@ -27,14 +27,14 @@ class ServerAdmin(admin.ModelAdmin):
 class UrlAdmin(admin.ModelAdmin):
     def save_model(self, request: Any, obj: Url, form: Any, change: Any) -> None:
         if "is_active" in form.changed_data:
-            ...  # ping_websocket()
+            ping_websocket()
         obj.save()
 
 
 class ServiceEndpointAdmin(admin.ModelAdmin):
     def save_model(self, request: Any, obj: Url, form: Any, change: Any) -> None:
         if "is_active" in form.changed_data:
-            ...  # ping_websocket()
+            ping_websocket()
         obj.save()
 
 
