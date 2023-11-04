@@ -9,7 +9,20 @@
     <button id="sendButton">Send</button>
 
     <script>
-      const socket = new WebSocket("ws://localhost:8000/ws/connect/");
+      // Function to determine whether the app is running locally or deployed
+      function isLocalhost() {
+        return (
+          window.location.hostname === "localhost" ||
+          window.location.hostname === "127.0.0.1"
+        );
+      }
+
+      // Determine the WebSocket URL dynamically
+      const protocol = isLocalhost() ? "ws" : "wss";
+      const host = window.location.host;
+      const wsUrl = `${protocol}://${host}/ws/connect/`;
+
+      const socket = new WebSocket(wsUrl);
 
       socket.onopen = (event) => {
         console.log("WebSocket connection opened.");
