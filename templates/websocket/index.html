@@ -29,6 +29,10 @@
       };
 
       socket.onmessage = (event) => {
+        const fetchUrl = `http://${host}/registry/endpoints/`;
+        fetch(fetchUrl).then((response) => {
+          console.log(response.json())
+        });
         console.log("Received message: " + event.data);
       };
 

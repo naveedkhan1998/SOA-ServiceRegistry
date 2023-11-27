@@ -28,10 +28,11 @@ class Url(models.Model):
 
 
 class ServiceEndpoint(models.Model):
+    name = models.CharField(max_length=255,default='Undefined',blank=False,null=False)
     server = models.ForeignKey(Server, on_delete=models.CASCADE)
     method = models.CharField(choices=METHODS, default="GET", max_length=10)
     endpoint = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"Server: {self.server.title} | Method: {self.method} | Endpoint: {self.endpoint} | Is Active: {self.is_active}"
+        return f"Title: {self.name} Server: {self.server.title} | Method: {self.method} | Endpoint: {self.endpoint} | Is Active: {self.is_active}"
